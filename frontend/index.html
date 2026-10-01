@@ -11,66 +11,162 @@
 
 <body>
 
-    <div class="container-fluid">
+    <header class="cabecalho d-flex align-items-center justify-content-between">
+        <h1 class="logo">VemAí</h1>
 
-        <header class="cabecalho">
-
-            <div class="logo">
-                VemAí
-            </div>
-
-            <button id="btn-login" class="btn-login">
-                Login
+        <div class="dropdown">
+            <button type="button" class="btn btn-login dropdown-toggle" id="btn-usuario" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                usuário
             </button>
 
-        </header>
-
-
-            <main class="col-md-10 conteudo">
-
-                <div class="topo-eventos">
-
-                    <div>
-                        <h2>
-                            Bem-vindo ao<br>
-                            <span>VemAí</span>
-                        </h2>
-                    </div>
-
-                    <div class="pesquisa">
-
-                        <input type="text" id="campoPesquisa" class="form-control" placeholder="Pesquisar eventos">
-
-                    </div>
-
-                    <button class="btn-cadastrar" id="btn-cadastrar-evento">
-                        + cadastrar evento
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <button class="dropdown-item" id="btn-minhas-inscricoes">
+                        Minhas inscrições
                     </button>
-
-                </div>
-                <div class="row g-4" id="listaEventos">
-
-
-                </div>
-
-            </main>
-
+                </li>
+                <li>
+                    <button class="dropdown-item" id="btn-sair">
+                        Sair
+                    </button>
+                </li>
+            </ul>
         </div>
+    </header>
 
+    <div class="conteudo-principal">
+
+        <aside class="menu-lateral">
+            <button class="categoria ativa" data-categoria="todos">todos os<br>eventos</button>
+            <button class="categoria" data-categoria="música">música</button>
+            <button class="categoria" data-categoria="tecnologia">tecnologia</button>
+            <button class="categoria" data-categoria="arte">arte</button>
+            <button class="categoria" data-categoria="educação">educação</button>
+            <button class="categoria" data-categoria="esportes">esportes</button>
+            <button class="categoria" data-categoria="games">games</button>
+        </aside>
+
+        <main class="area-eventos">
+
+            <div class="topo-eventos">
+                <div class="boas-vindas">
+                    <h2>bem vindo ao<br>VemAí</h2>
+                </div>
+
+                <div class="area-pesquisa">
+                    <input type="text" id="campo-pesquisa" class="form-control">
+                    <button type="button" class="btn btn-pesquisa" id="btn-pesquisa">
+                        Pesquisar
+                    </button>
+                </div>
+
+                <button type="button" class="btn btn-cadastrar" id="btn-cadastrar-evento">
+                    + cadastrar evento
+                </button>
+            </div>
+
+            <div class="row g-4 lista-eventos" id="lista-eventos"></div>
+
+        </main>
     </div>
 
-                    </form>
+    <div class="modal fade" id="modalEvento" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastrar evento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <form id="form-evento">
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="nome-evento" class="form-label">Nome do evento</label>
+                            <input type="text" class="form-control" id="nome-evento" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descricao-evento" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="descricao-evento" rows="3" required></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="data-evento" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="data-evento" required>
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label for="horario-evento" class="form-label">Horário</label>
+                                <input type="time" class="form-control" id="horario-evento" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="local-evento" class="form-label">Local</label>
+                            <input type="text" class="form-control" id="local-evento" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="categoria-evento" class="form-label">Categoria</label>
+                                <select class="form-select" id="categoria-evento" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Música">Música</option>
+                                    <option value="Tecnologia">Tecnologia</option>
+                                    <option value="Arte">Arte</option>
+                                    <option value="Educação">Educação</option>
+                                    <option value="Esportes">Esportes</option>
+                                    <option value="Games">Games</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label for="vagas-evento" class="form-label">Vagas</label>
+                                <input type="number" class="form-control" id="vagas-evento" min="1" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            cadastrar
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalInscricoes" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Minhas inscrições</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div id="lista-inscricoes">
+                        <p class="text-center">Carregando inscrições...</p>
+                    </div>
                 </div>
 
             </div>
-
         </div>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 
 </body>
 

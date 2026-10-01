@@ -1,216 +1,382 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
+    margin: 0;
     min-height: 100vh;
-
     font-family: Arial, sans-serif;
-
-    background: linear-gradient(135deg,
-            #eee8ff,
-            #dce8ff);
-
-    color: #29235c;
+    background: linear-gradient(135deg, #e7d9ff, #c9e8ff);
+    color: #29233d;
 }
 
-
 .cabecalho {
-    height: 65px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 25px;
-
-    background: white;
-
-    border-bottom: 1px solid #ddd;
+    margin: 20px;
+    padding: 15px 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 5px 20px rgba(80, 60, 130, 0.15);
 }
 
 .logo {
-    font-size: 27px;
-
-    font-weight: 600;
-
-    color: #40258e;
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: #6045a5;
 }
 
 .btn-login {
-    background: white;
+    background: #7054b8;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+}
 
-    border: 1px solid #29235c;
+.btn-login:hover,
+.btn-login:focus {
+    background: #5d429f;
+    color: white;
+}
 
-    border-radius: 5px;
+.dropdown-menu {
+    border: none;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 5px 20px rgba(80, 60, 130, 0.15);
+}
 
-    padding: 5px 30px;
+.dropdown-item {
+    padding: 10px 15px;
+    border-radius: 8px;
+}
 
-    color: #29235c;
+.dropdown-item:hover {
+    background: #eee6ff;
+    color: #6045a5;
+}
 
+.conteudo-principal {
+    display: flex;
+    margin: 20px;
+    min-height: 650px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 30px rgba(80, 60, 130, 0.15);
+}
+
+.menu-lateral {
+    width: 150px;
+    flex-shrink: 0;
+    padding: 20px 10px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.categoria {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #4c4266;
+    text-align: left;
     cursor: pointer;
 }
 
-
-.conteudo {
-    padding: 20px 30px;
+.categoria:hover,
+.categoria.ativa {
+    background: #d9c9fa;
+    color: #4f3990;
 }
 
+.area-eventos {
+    flex: 1;
+    padding: 25px;
+}
 
 .topo-eventos {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
-    gap: 20px;
-
+    gap: 25px;
     margin-bottom: 30px;
 }
 
-.topo-eventos h2 {
-    font-size: 20px;
-
-    font-weight: 400;
-
+.boas-vindas h2 {
     margin: 0;
+    font-size: 22px;
+    color: #513c83;
 }
 
-.topo-eventos h2 span {
-    font-weight: 600;
-
-    color: #482b9c;
-}
-
-
-.pesquisa {
+.area-pesquisa {
     display: flex;
-
-    align-items: center;
-
     width: 300px;
 }
 
-.pesquisa input {
-    height: 38px;
-
-    border-radius: 6px 0 0 6px;
-
-    border-right: none;
+.area-pesquisa input {
+    border: 2px solid #bba9df;
+    border-radius: 10px 0 0 10px;
+    background: rgba(255, 255, 255, 0.8);
 }
 
-.pesquisa button {
-    height: 38px;
+.area-pesquisa input:focus {
+    border-color: #8064c7;
+    box-shadow: none;
+}
 
-    width: 45px;
+.btn-pesquisa {
+    border: none;
+    border-radius: 0 10px 10px 0;
+    background: #8064c7;
+    color: white;
+}
 
-    border: 1px solid #ced4da;
-
-    border-left: none;
-
-    background: white;
-
-    border-radius: 0 6px 6px 0;
-
-    cursor: pointer;
+.btn-pesquisa:hover {
+    background: #684db0;
+    color: white;
 }
 
 .btn-cadastrar {
-    background: white;
-
-    border: 1px solid #29235c;
-
-    border-radius: 5px;
-
-    padding: 7px 18px;
-
-    color: #29235c;
-
-    white-space: nowrap;
-
-    cursor: pointer;
+    background: #8064c7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
 }
 
 .btn-cadastrar:hover {
-    background: #f0eaff;
+    background: #684db0;
+    color: white;
 }
 
-.card-evento {
-    height: 220px;
+.evento-card {
+    min-height: 230px;
+    border: none;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 18px rgba(80, 60, 130, 0.12);
+}
 
-    border: 1px solid #222;
-
-    border-radius: 20px;
-
-    background: white;
-
-    overflow: hidden;
-
+.evento-card .card-body {
+    padding: 20px;
     display: flex;
-
     flex-direction: column;
-
-    justify-content: space-between;
-
-    padding: 15px;
-
-    transition: 0.2s;
 }
 
-.card-evento:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 5px 15px rgba(60, 40, 130, 0.15);
+.card-title {
+    color: #6045a5;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-
-.imagem-evento {
-    width: 100%;
-
-    height: 110px;
-
-    object-fit: cover;
-
-    border-radius: 12px;
-
-    background: linear-gradient(135deg,
-            #d9ccff,
-            #c6ddff);
+.evento-descricao {
+    color: #625b70;
+    font-size: 14px;
 }
 
-.nome-evento {
-    font-size: 17px;
-
-    font-weight: 600;
-
-    color: #302064;
-
-    margin: 8px 0;
+.evento-informacoes {
+    color: #756c84;
+    font-size: 13px;
+    margin-bottom: 5px;
 }
 
 .btn-inscrever {
-    align-self: flex-start;
-
-    padding: 4px 12px;
-
-    border: 1px solid #29235c;
-
-    border-radius: 5px;
-
-    background: white;
-
-    color: #29235c;
-
-    font-size: 12px;
-
-    cursor: pointer;
+    margin-top: auto;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #8064c7;
+    color: white;
 }
 
 .btn-inscrever:hover {
-    background: #eee8ff;
+    background: #684db0;
+    color: white;
 }
 
+.modal-content {
+    border: none;
+    border-radius: 18px;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #8064c7, #629bd6);
+    color: white;
+    border-radius: 18px 18px 0 0;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-footer .btn-primary {
+    background: #8064c7;
+    border: none;
+}
+
+.modal-footer .btn-primary:hover {
+    background: #684db0;
+}
+
+.modal-login {
+    border-radius: 20px;
+}
+
+.modal-login .modal-header {
+    padding: 20px 25px;
+}
+
+.texto-login {
+    color: #625b70;
+    margin-bottom: 25px;
+}
+
+.btn-entrar {
+    width: 100%;
+    background: #8064c7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn-entrar:hover {
+    background: #684db0;
+    color: white;
+}
+
+.mensagem-login {
+    color: #c0392b;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.mensagem-eventos {
+    text-align: center;
+    padding: 40px;
+    color: #625b70;
+}
+
+.inscricao-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background: #f5f0ff;
+    border: 1px solid #ddd2f5;
+}
+
+.inscricao-item h5 {
+    margin-bottom: 8px;
+    color: #6045a5;
+    font-weight: bold;
+}
+
+.inscricao-item p {
+    margin: 3px 0;
+    color: #625b70;
+    font-size: 14px;
+}
+
+.status-inscricao {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #d9c9fa;
+    color: #4f3990;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-cancelar-inscricao {
+    background: #8064c7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 14px;
+}
+
+.btn-cancelar-inscricao:hover {
+    background: #684db0;
+    color: white;
+}
+
+
+/* Login */
+
+
+
+.pagina-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-login {
+    width: 400px;
+    padding: 35px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 30px rgba(80, 60, 130, 0.18);
+}
+
+.card-login h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #6045a5;
+    font-weight: bold;
+}
+
+.texto-login {
+    text-align: center;
+    color: #625b70;
+    margin-bottom: 30px;
+}
+
+.form-label {
+    color: #4c4266;
+    font-weight: bold;
+}
+
+.form-control {
+    border: 2px solid #d0c3e8;
+    border-radius: 10px;
+    padding: 11px;
+}
+
+.form-control:focus {
+    border-color: #8064c7;
+    box-shadow: none;
+}
+
+.btn-entrar {
+    width: 100%;
+    margin-top: 15px;
+    padding: 11px;
+    border: none;
+    border-radius: 10px;
+    background: #8064c7;
+    color: white;
+}
+
+.btn-entrar:hover {
+    background: #684db0;
+    color: white;
+}
+
+.mensagem-login {
+    color: #c0392b;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
